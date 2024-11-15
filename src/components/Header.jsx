@@ -9,7 +9,7 @@ const Header = () => {
             <div className="col-xl-2 col-lg-5 col-5">
               <div className="rr-header-logo">
                 <a href="index.html">
-                  <img src="images/logo.png" width="60%" alt="img" />
+                  <img src="/images/logo.png" width="60%" alt="img" />
                 </a>
               </div>
             </div>

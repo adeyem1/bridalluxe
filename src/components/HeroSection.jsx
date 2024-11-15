@@ -5,16 +5,16 @@ const HeroSection = () => {
     <section id="home" className="rr-hero-area rr-hero-bg pt-120 pb-120 p-relative">
       <div className="rr-hero-main-shap">
         <div className="rr-hero-shap-1 d-none d-xxl-block">
-          <img src="images/shap.png" alt="Shape 1" />
+          <img src="/images/shap.png" alt="Shape 1" />
         </div>
         <div className="rr-hero-shap-2">
-          <img src="images/shape2.png" alt="Shape 2" />
+          <img src="/images/shape2.png" alt="Shape 2" />
         </div>
         <div className="rr-hero-shap-3">
-          <img src="images/shape3.png" alt="Shape 3" />
+          <img src="/images/shape3.png" alt="Shape 3" />
         </div>
         <div className="rr-hero-shap-4">
-          <img src="images/shape4.png" alt="Shape 4" />
+          <img src="/images/shape4.png" alt="Shape 4" />
         </div>
       </div>
 
@@ -73,20 +73,20 @@ const HeroSection = () => {
             <div className="col-xl-5 col-lg-5 col-md-10 col-sm-10 col-12 p-relative">
               <div className="rr-hero-thumb text-end">
                 <div className="rr-hero-banner-shap">
-                  <img src="images/camera.png" alt="Camera" />
+                  <img src="/images/camera.png" alt="Camera" />
                 </div>
                 <div className="rr-hero-main-thumb wow rrfadeUp" data-wow-duration=".9s" data-wow-delay=".5s">
-                  <img src="images/banner-main.jpg" width="100%" alt="Main Banner" />
+                  <img src="/images/banner-main.jpg" width="100%" alt="Main Banner" />
                 </div>
                 <div className="rr-hero-sm d-none d-xxl-block wow rrfadeRight" data-wow-duration=".9s" data-wow-delay=".3s">
-                  <img src="images/banner-sm.jpg" width="80%" alt="Small Banner" />
+                  <img src="/images/banner-sm.jpg" width="80%" alt="Small Banner" />
                 </div>
                 <div className="rr-hero-border-img wow rrfadeUp" data-wow-duration=".9s" data-wow-delay=".7s">
                   <div className="rr-hero-md d-none d-md-block">
-                    <img src="images/banner-md.jpg" alt="Medium Banner" />
+                    <img src="/images/banner-md.jpg" alt="Medium Banner" />
                   </div>
                   <div className="rr-hero-border-full">
-                    <img src="images/img-full.png" width="95%" alt="Full Image" />
+                    <img src="/images/img-full.png" width="95%" alt="Full Image" />
                   </div>
                 </div>
               </div>
