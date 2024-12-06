@@ -66,60 +66,7 @@
 		$(".body-overlay").removeClass("apply");
 	});
 
-	////////////////////////////////////////////////////
-	// 03. Search Js
-	$(".search-open-btn").on("click", function () {
-		$(".search__popup").addClass("search-opened");
-	});
-
-	$(".search-close-btn").on("click", function () {
-		$(".search__popup").removeClass("search-opened");
-	});
-
-	$('.col-custom').on("click", function () {
-		$('#features-item-thumb').removeClass().addClass($(this).attr('rel'));
-		$(this).addClass('active').siblings().removeClass('active');
-	});
-
-	// $('.rr-hero-2__feature-box .rr-hero-2__feature-item').on('hover', function () {
-	// 	$(this).addClass('active').siblings().find('.rr-hero-2__feature-item').removeClass('active');
-	// });
-
-	$('.rr-hero-2__feature-item').on('mouseenter', function () {
-		$(this).addClass('active').parent().siblings().find('.rr-hero-2__feature-item').removeClass('active');
-	});
-
-	$('.rr-custom-accordion .accordion-items').on("click", function () {
-		$(this).addClass('rr-faq-active').siblings().removeClass('rr-faq-active');
-	});
-
-
-	// for header
-	if ($("#rr-header-top__value-toogle").length > 0) {
-		window.addEventListener('click', function (e) {
-
-			if (document.getElementById('rr-header-top__value-toogle').contains(e.target)) {
-				$(".rr-header-top__value-submenu").toggleClass("open");
-			}
-			else {
-				$(".rr-header-top__value-submenu").removeClass("open");
-			}
-		});
-	}
-
-
-	// for header
-	if ($("#rr-header-top__lang-toogle").length > 0) {
-		window.addEventListener('click', function (e) {
-
-			if (document.getElementById('rr-header-top__lang-toogle').contains(e.target)) {
-				$(".rr-header-top__lang-submenu").toggleClass("open");
-			}
-			else {
-				$(".rr-header-top__lang-submenu").removeClass("open");
-			}
-		});
-	}
+	
 
 
 	///////////////////////////////////////////////////
@@ -615,34 +562,7 @@ var swiperProject = new Swiper(".rr-services-2-active", {
 			});
 		});
 	}
-	////////////////////////////////////////////////////
-	// 15. Masonary Js
-	// $('.grid').imagesLoaded(function () {
-	// 	// init Isotope
-	// 	var $grid = $('.grid').isotope({
-	// 		itemSelector: '.grid-item',
-	// 		percenrrosition: true,
-	// 		masonry: {
-	// 			// use outer width of grid-sizer for columnWidth
-	// 			columnWidth: '.grid-item',
-	// 		}
-	// 	});
-
-
-	// 	// filter items on button click
-	// 	$('.masonary-menu').on('click', 'button', function () {
-	// 		var filterValue = $(this).attr('data-filter');
-	// 		$grid.isotope({ filter: filterValue });
-	// 	});
-
-	// 	//for menu active class
-	// 	$('.masonary-menu button').on('click', function (event) {
-	// 		$(this).siblings('.active').removeClass('active');
-	// 		$(this).addClass('active');
-	// 		event.preventDefault();
-	// 	});
-
-	// });
+	
 
 	/* magnificPopup img view */
 	$('.popup-image').magnificPopup({
@@ -849,113 +769,7 @@ var swiperProject = new Swiper(".rr-services-2-active", {
 
 	////////////////////////////////////////////////////
 	// 21. Password Toggle Js
-	if ($('#password-show-toggle').length > 0) {
-		var btn = document.getElementById('password-show-toggle');
-
-		btn.addEventListener('click', function (e) {
-
-			var inputType = document.getElementById('rr_password');
-			var openEye = document.getElementById('open-eye');
-			var closeEye = document.getElementById('close-eye');
-
-			if (inputType.type === "password") {
-				inputType.type = "text";
-				openEye.style.display = 'block';
-				closeEye.style.display = 'none';
-			} else {
-				inputType.type = "password";
-				openEye.style.display = 'none';
-				closeEye.style.display = 'block';
-			}
-		});
-	}
-
-	if ($('.rr-header-height').length > 0) {
-		var headerHeight = document.querySelector(".rr-header-height");
-		var setHeaderHeight = headerHeight.offsetHeight;
-
-		$(".rr-header-height").each(function () {
-			$(this).css({
-				'height': setHeaderHeight + 'px'
-			});
-		});
-	}
-	// Jquery Appear raidal
-	if (typeof ($.fn.knob) != 'undefined') {
-		$('.knob').each(function () {
-			var $this = $(this),
-				knobVal = $this.attr('data-rel');
-
-			$this.knob({
-				'draw': function () {
-					$(this.i).val(this.cv + '%')
-				}
-			});
-
-			$this.appear(function () {
-				$({
-					value: 0
-				}).animate({
-					value: knobVal
-				}, {
-					duration: 2000,
-					easing: 'swing',
-					step: function () {
-						$this.val(Math.ceil(this.value)).trigger('change');
-					}
-				});
-			}, {
-				accX: 0,
-				accY: -150,
-			});
-		});
-	}
-
-	if ($('.rr-main-menu-content').length && $('.rr-main-menu-mobile').length) {
-		let navContent = document.querySelector(".rr-main-menu-content").outerHTML;
-		let mobileNavContainer = document.querySelector(".rr-main-menu-mobile");
-		mobileNavContainer.innerHTML = navContent;
-
-
-		let arrow = $(".rr-main-menu-mobile .has-dropdown > a");
-
-		arrow.each(function () {
-			let self = $(this);
-			let arrowBtn = document.createElement("BUTTON");
-			arrowBtn.classList.add("dropdown-toggle-btn");
-			arrowBtn.innerHTML = "<i class='fal fa-angle-right'></i>";
-
-			self.append(function () {
-				return arrowBtn;
-			});
-
-			self.find("button").on("click", function (e) {
-				e.preventDefault();
-				let self = $(this);
-				self.toggleClass("dropdown-opened");
-				self.parent().toggleClass("expanded");
-				self.parent().parent().addClass("dropdown-opened").siblings().removeClass("dropdown-opened");
-				self.parent().parent().children(".rr-submenu").slideToggle();
-			});
-
-		});
-	}
-
-
-	$('.rr-feature-item').on('mouseenter', function () {
-		$(this).addClass('active').parent().siblings().find('.rr-feature-item').removeClass('active');
-	});
-
-	// jarallax
-	if ($('.jarallax').length > 0) {
-		$('.jarallax').jarallax({
-			speed: 0.2,
-			imgWidth: 1366,
-			imgHeight: 768,
-		});
-
-	};
-
+	
 	///////////////////////////////////////////////////
 	// 07. Sticky Header Js
 	windowOn.on('scroll', function () {

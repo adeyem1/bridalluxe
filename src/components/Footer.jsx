@@ -1,6 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Footer = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [currentImage, setCurrentImage] = useState('');
+
+  const openModal = (image) => {
+    setCurrentImage(image);
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+    setCurrentImage('');
+  };
+
+  const galleryImages = [
+    'img_1.jpg',
+    'img-2.jpg',
+    'img-3.jpg',
+    'img-4.jpg',
+    'img-5.jpg',
+    'img-6.jpg',
+  ];
+
   return (
     <footer>
       <div className="rr-footer-main p-relative fix">
@@ -101,22 +123,16 @@ const Footer = () => {
                   <h4 className="rr-footer-title">Gallery</h4>
                   <div className="rr-footer__widget-gallery-wrap">
                     <div className="row gx-5">
-                      {[
-                        'img_1.jpg',
-                        'img-2.jpg',
-                        'img-3.jpg',
-                        'img-4.jpg',
-                        'img-5.jpg',
-                        'img-6.jpg',
-                      ].map((image, index) => (
+                      {galleryImages.map((image, index) => (
                         <div className="col-xl-4 col-lg-4 col-md-3 col-4 p-1" key={index}>
-                          <div className="rr-footer__widget-gallery p-relative">
-                            <a href={`images/${image}`} className="our-gallery__item popup-image">
-                              <img src={`images/${image}`} alt={`Gallery Image ${index}`} />
-                              <span>
-                                <i className="fa-solid fa-plus"></i>
-                              </span>
-                            </a>
+                          <div
+                            className="rr-footer__widget-gallery p-relative"
+                            onClick={() => openModal(index)}
+                          >
+                            <img src={`images/${image}`} alt={`Gallery Image ${index}`} />
+                            <span className="plus-icon">
+                              <i className="fa-solid fa-plus"></i>
+                            </span>
                           </div>
                         </div>
                       ))}
@@ -129,25 +145,97 @@ const Footer = () => {
         </div>
         {/* Footer area end */}
 
-        {/* Copyright area start */}
-        <div className="rr-copyright-area p-relative" style={{ backgroundColor: '#000000' }}>
-          <div className="container rr-copyright-space">
-            <div className="row align-items-center">
-              <div
-                className="col-xl-12 wow rrfadeUp"
-                data-wow-duration=".9s"
-                data-wow-delay=".3s"
-              >
-                <div className="rr-copyright-left text-center">
-                  <p>
-                    © 2024 <a href="#"> Y&D bridal luxe.</a> Design By adesanyadeyemi. All Rights Reserved.
-                  </p>
-                </div>
-              </div>
+        {/* Modal for gallery */}
+        {isOpen && (
+          <div className="modal-overlay" onClick={closeModal}>
+            <div className="modal-content">
+              <img src={currentImage} alt="Gallery" />
+              <button className="close-btn" onClick={closeModal}>
+                &times;
+              </button>
             </div>
           </div>
-        </div>
-        {/* Copyright area end */}
+        )}
+
+        {/* Modal styles */}
+        <style jsx>{`
+          .rr-footer__widget-gallery {
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+          }
+
+          .rr-footer__widget-gallery img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+          }
+
+          .rr-footer__widget-gallery:hover img {
+            transform: scale(1.1);
+          }
+
+          .plus-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.5);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+          }
+
+          .plus-icon i {
+            color: white;
+          }
+
+          .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+          }
+
+          .modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+          }
+
+          .modal-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+          }
+
+          .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+          }
+
+          .close-btn:hover {
+            color: red;
+          }
+        `}</style>
       </div>
     </footer>
   );

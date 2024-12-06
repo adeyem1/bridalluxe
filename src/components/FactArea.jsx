@@ -36,7 +36,7 @@ const FactArea = () => {
           <img src="/images/full02.png" alt="Shape 2" />
         </div>
 
-        <div className="rr-funfact pt-40 pb-40 p-relative fix ">
+        <div className="rr-funfact pt-40 pb-40 p-relative fix">
           <div className="row gx-30 text-lg">
             {[
               { end: 10, label: "Happy Couples", delay: 0.3 },
@@ -50,19 +50,21 @@ const FactArea = () => {
               >
                 <div className="rr-funfact-content text-center fix p-relative">
                   <div className="rr-funfact-number d-flex align-items-center justify-content-center">
-                    <h5 className="rr-funfact-number text-">
-                      {startCounting && (
-                        <CountUp 
-                          start={0} 
-                          end={item.end} 
-                          duration={2 + item.delay} // Customize duration
-                          useEasing={true} 
-                        />
-                      )}
-                    </h5>
-                    {item.label === "Decoration" || item.label === "Locations" ? (
-                      <b></b>
-                    ) : null}
+                    {startCounting && (
+                      <CountUp
+                        start={0}
+                        end={item.end}
+                        duration={2 + item.delay} // Customize duration
+                        useEasing={true}
+                      >
+                        {({ countUpRef }) => (
+                          <h1
+                            className="text-4xl font-bold text-green-500"
+                            ref={countUpRef}
+                          />
+                        )}
+                      </CountUp>
+                    )}
                   </div>
                   <div className="rr-funfact-text">
                     <span>{item.label}</span>

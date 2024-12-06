@@ -10902,14 +10902,21 @@ body .ui-tooltip {
   }
 }
 .rr-testimonial-swiper-dot {
-  position: absolute;
-  bottom: -21px;
-  left: 50%;
-  transform: translate(-50%);
+  position: absolute; /* Ensure it's absolute if the parent container is relative */
+  display: flex;
+  justify-content: center;
+  bottom: -21px; /* Adjust based on your design */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Ensure centering is effective */
   z-index: 9;
-  transition: 0.3s;
-  z-index: 1;
+  transition: all 0.3s ease-in-out;
 }
+.parent-container {
+  position: relative;
+  width: 100%; /* Ensure it spans the full width */
+  text-align: center; /* Optional, for fallback centering */
+}
+
 .rr-testimonial-active {
   padding-bottom: 51px;
 }
