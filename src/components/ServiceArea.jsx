@@ -52,7 +52,7 @@ const ServiceArea = () => {
               Our Services
             </span>
             <h3 className="rr-section-title wow rrfadeUp" data-wow-duration=".9s" data-wow-delay=".5s">
-              Complete Wedding Planning
+              Complete Event Planning
             </h3>
           </div>
         </div>
