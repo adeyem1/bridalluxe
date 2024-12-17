@@ -35,7 +35,7 @@ function App() {
       <VideoArea/>
       <TeamArea />
       <Testimonial/>
-      <ContactModal />
+      {/* <ContactModal /> */}
       <CtaArea/>
       <Footer/>
       <BackToTop />

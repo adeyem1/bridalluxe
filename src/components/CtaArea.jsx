@@ -40,7 +40,7 @@ const CtaArea = () => {
                 onClick={handleButtonClick} // Trigger modal open
                 style={{ cursor: "pointer" }} // Make it clear it's clickable
               >
-                Let us Know <i className="fa-sharp fa-solid fa-arrow-right"></i>
+               <span>Let us Know </span> <i className="fa-sharp fa-solid fa-arrow-right"></i>
               </a>
             </div>
           </div>
